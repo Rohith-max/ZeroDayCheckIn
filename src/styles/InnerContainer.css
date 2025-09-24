@@ -1,0 +1,40 @@
+/* Inner Container Component Styles */
+.inner-container {
+  /* Align edges to 32px gutters so left edge matches clipboard icon line */
+  width: calc(100% - 64px);
+  /* removed max-width cap to allow further stretching */
+  /* Use min-height so content can grow and page can scroll */
+  min-height: 1354px; /* Figma baseline */
+  height: auto;
+  position: relative;
+  margin: 0 32px; /* 32px gutters on both sides */
+  padding: 24px; /* increased padding to match reference spacing */
+  background-color: #f9fafb;
+  border-radius: 10px;
+  box-sizing: border-box;
+  overflow: visible; /* ensure content isn't clipped */
+}
+
+/* Responsive Design */
+@media (max-width: 1440px) {
+  .inner-container {
+    width: calc(100% - 64px);
+    margin: 0 32px;
+  }
+}
+
+@media (max-width: 768px) {
+  .inner-container {
+    width: calc(100% - 32px);
+    margin: 0 16px;
+    padding: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .inner-container {
+    width: calc(100vw - 24px);
+    margin: 0 12px;
+    padding: 12px;
+  }
+}
