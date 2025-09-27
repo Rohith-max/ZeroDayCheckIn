@@ -67,8 +67,8 @@
   cursor: pointer;
 }
 
-.rm-remarks {
-  margin-top: 32px;
+.rm-remarks .project-details-title {
+  margin-bottom: 4px; /* reduced spacing between RM title and paragraph */
 }
 
 .rm-remarks p {
@@ -77,25 +77,26 @@
   line-height: 145%;
   color: #101928;
   margin: 0;
-  padding: 16px;
+  padding: 16px; /* matches design spec - padding-right: 16px, padding-bottom: 16px, padding-left: 16px */
   background: #FFFFFF;
-  border: 1px solid #E4E7EC;
-  border-radius: 6px;
+  border: 0.5px solid #E4E7EC; /* matches design spec - border-width: 0.5px */
+  border-radius: 6px; /* matches design spec */
+  width: 1320px; /* matches design spec */
+  height: 90px; /* matches design spec */
+  box-sizing: border-box;
 }
 
-/* Locked state for RM remarks after submit */
 .rm-remarks p.locked {
   background: #F7F7F7;
 }
 
-/* IT General Remarks styles (editable textarea, same visual as RM Remarks) */
-.it-remarks {
-  margin-top: 24px; /* sits between RM remarks and comment box */
+.rm-remarks {
+  margin-top: 40px; /* increased spacing between tools table and RM remarks */
 }
 
 .it-remarks textarea {
   width: 100%;
-  padding: 16px;
+  padding: 8px; /* further reduced from 12px */
   background: #FFFFFF;
   border: 1px solid #E4E7EC;
   border-radius: 6px;
@@ -114,13 +115,17 @@
 }
 
 .comment-box {
-  margin-top: 32px;
+  margin-top: 32px; /* increased from 24px to create more space between RM remarks and comment box */
+}
+
+.comment-box .project-details-title {
+  margin-bottom: 4px; /* reduced spacing between title and textarea */
 }
 
 .comment-box textarea {
   width: 100%;
   height: 96px; /* slightly taller than RM remarks box */
-  padding: 16px;
+  padding: 8px; /* further reduced from 12px */
   background: #FFFFFF;
   border: 1px solid #E4E7EC;
   border-radius: 6px;
@@ -146,7 +151,7 @@
 @media (max-width: 1440px) {
   .table th,
   .table td {
-    padding: 14px 16px;
+    padding: 10px 12px; /* reduced from 14px 16px */
   }
 }
 
@@ -161,15 +166,14 @@
 
   .table th,
   .table td {
-    padding: 12px 16px;
+    padding: 8px 10px; /* further reduced for mobile */
   }
 }
 
-@media (max-width: 480px) {
-  .project-details-title {
-    font-size: 14px;
-    margin-bottom: 16px;
-  }
+/* Select Required Tools title - reduced spacing */
+.project-details-title.select-tools-title {
+  margin-bottom: 4px; /* further reduced spacing above tools table */
+  margin-top: 12px; /* further reduced spacing from previous elements */
 }
 
 .checkbox-button {
@@ -199,6 +203,11 @@
   opacity: 1; /* keep icon crisp */
 }
 
+.checkbox-button:focus {
+  outline: none;
+  box-shadow: none;
+}
+
 
 /* Title with note styles */
 .title-with-note {
@@ -206,7 +215,7 @@
   align-items: center;
   justify-content: space-between; /* push note icon to the right end */
   gap: 0;
-  margin-bottom: 24px;
+  margin-bottom: 2px; /* reduced from 24px to match reference */
   position: relative; /* anchor for tooltip positioning */
 }
 
@@ -226,6 +235,11 @@
   cursor: pointer;
 }
 
+.note-button:focus {
+  outline: none;
+  box-shadow: none;
+}
+
 .note-tooltip {
   position: absolute;
   top: calc(100% + 8px); /* below the title row */
@@ -242,14 +256,19 @@
 
 .note-tooltip-close {
   position: absolute;
-  top: 12px; /* adjust to match Tooltip.svg placement */
-  right: 12px; /* adjust to match Tooltip.svg placement */
+  top: 20px; /* adjusted to match Tooltip.svg placement */
+  right: 20px; /* adjusted to match Tooltip.svg placement */
   background: transparent;
   border: none;
   padding: 0;
   margin: 0;
   line-height: 0;
   cursor: pointer;
+}
+
+.note-tooltip-close:focus {
+  outline: none;
+  box-shadow: none;
 }
 
 /* Button container styles */
@@ -355,6 +374,6 @@
 }
 
 .submit-svg-button:focus {
-  outline: 2px solid #38AEE0;
-  border-radius: 4px;
+  outline: none;
+  box-shadow: none;
 }
