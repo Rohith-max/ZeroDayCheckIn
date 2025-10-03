@@ -43,7 +43,7 @@ const ProjectDetailsTable = () => {
   };
 
   const handleSubmit = () => {
-    navigate('/helpdesk');
+    setIsDraftSaved(true); // Move to next state (locked state)
   };
 
   const toggleSelectAll = () => {
@@ -79,7 +79,7 @@ const ProjectDetailsTable = () => {
         )}
       </div>
       
-      <table className="table">
+      <table className="table project-details-info-table">
         <thead>
           <tr>
             <th>Employee Name</th>
@@ -103,11 +103,11 @@ const ProjectDetailsTable = () => {
       </table>
 
       {/* Save as Draft SVG (non-interactive), hidden once moved to next state */}
-      {!isDraftSaved && (
-        <div className="draft-icon-right">
+      <div className="draft-icon-right">
+        {!isDraftSaved && (
           <img src={SaveAsDraftSvg} alt="Save as Draft" />
-        </div>
-      )}
+        )}
+      </div>
 
       <h2 className="project-details-title select-tools-title">Select Required Tools</h2>
       
@@ -122,7 +122,7 @@ const ProjectDetailsTable = () => {
                 disabled={isDraftSaved}
               >
                 <img
-                  src={isAllSelected ? (isDraftSaved ? CheckYesSvg : CheckYesState1Svg) : CheckNoSvg}
+                  src={isAllSelected ? (isHelpDesk ? CheckYesSvg : (isDraftSaved ? CheckYesSvg : CheckYesState1Svg)) : CheckNoSvg}
                   alt={isAllSelected ? 'Checked' : 'Unchecked'}
                   width="16"
                   height="16"
@@ -149,7 +149,7 @@ const ProjectDetailsTable = () => {
                 >
                   <img 
                     src={selectedTools.includes(tool.name) 
-                      ? (isDraftSaved ? CheckYesSvg : CheckYesState1Svg) 
+                      ? (isHelpDesk ? CheckYesSvg : (isDraftSaved ? CheckYesSvg : CheckYesState1Svg))
                       : CheckNoSvg} 
                     alt={selectedTools.includes(tool.name) ? "Checked" : "Unchecked"}
                     width="16"
@@ -195,20 +195,20 @@ const ProjectDetailsTable = () => {
       </div>
 
       {/* Submit triggers next state (lock) and is hidden afterwards */}
-      {!isDraftSaved && (
-        <div className="submit-svg">
+      <div className="submit-svg">
+        {!isDraftSaved && (
           <button className="submit-svg-button" onClick={handleSubmit} aria-label="Submit">
             <img src={SubmitButtonSvg} alt="Submit" />
           </button>
-        </div>
-      )}
+        )}
+      </div>
 
       {/* Transfer workflow is hidden when draft is saved */}
-      {!isDraftSaved && (
-        <div className="transfer-workflow">
+      <div className="transfer-workflow">
+        {!isDraftSaved && (
           <img src={TransferWorkflowSvg} alt="Transfer Workflow" />
-        </div>
-      )}
+        )}
+      </div>
 
       {/* View Policies inside inner-container, 48px below transfer workflow */}
       <div className="view-policies-link">

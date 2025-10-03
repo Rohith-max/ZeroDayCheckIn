@@ -32,21 +32,50 @@
 .table th {
   padding: 14px 24px;
   text-align: left;
-  font-family: "Samsung InterFace", "Segoe UI", Arial, sans-serif;
-  font-weight: bold;
+  font-family: 'Samsung InterFace', "Segoe UI", Arial, sans-serif;
+  font-style: normal;
+  font-weight: 700;
   font-size: 14px;
-  line-height: 145%;
+  line-height: 145%; /* or 20px */
+  letter-spacing: -0.005em;
   color: #202224;
   border-bottom: 1px solid #e4e7ec;
 }
 
+/* Remove header text styles from checkbox column */
+.table th:first-child {
+  font-weight: normal;
+  letter-spacing: normal;
+}
+
+/* Project Details Info Table - specific styles for employee details table */
+.project-details-info-table th {
+  font-family: 'Samsung InterFace', "Segoe UI", Arial, sans-serif !important;
+  font-style: normal !important;
+  font-weight: 700 !important;
+  font-size: 14px !important;
+  line-height: 145% !important; /* or 20px */
+  letter-spacing: -0.005em !important;
+  color: #202224 !important;
+}
+
+.project-details-info-table td {
+  font-family: 'Inter', "Segoe UI", Arial, sans-serif !important;
+  font-style: normal !important;
+  font-weight: 500 !important;
+  font-size: 14px !important;
+  line-height: 145% !important; /* or 20px */
+  color: #333333 !important;
+}
+
 .table td {
   padding: 17px 24px;
-  font-family: "Inter", "Segoe UI", Arial, sans-serif;
-  font-weight: 500;
+  font-family: 'Samsung InterFace', "Inter", "Segoe UI", Arial, sans-serif;
+  font-style: normal;
+  font-weight: 400;
   font-size: 14px;
-  line-height: 145%;
-  color: #101928;
+  line-height: 145%; /* or 20px */
+  color: #333333;
   border-bottom: 1px solid #e4e7ec;
 }
 
@@ -69,44 +98,77 @@
 
 .rm-remarks .project-details-title {
   margin-bottom: 4px; /* reduced spacing between RM title and paragraph */
+  font-family: 'Samsung InterFace', "Segoe UI", Arial, sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 145%; /* or 20px */
+  display: flex;
+  align-items: center;
+  color: #101928;
 }
 
 .rm-remarks p {
-  font-family: "Inter", "Segoe UI", Arial, sans-serif;
-  font-size: 14px;
-  line-height: 145%;
-  color: #101928;
+  font-family: 'Samsung InterFace', "Inter", "Segoe UI", Arial, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 145%; /* 23px */
+  color: #000000;
   margin: 0;
-  padding: 16px; /* matches design spec - padding-right: 16px, padding-bottom: 16px, padding-left: 16px */
-  background: #FFFFFF;
-  border: 0.5px solid #E4E7EC; /* matches design spec - border-width: 0.5px */
-  border-radius: 6px; /* matches design spec */
-  width: 1320px; /* matches design spec */
-  height: 90px; /* matches design spec */
+  padding: 16px;
+  background: rgba(243, 243, 243, 1); /* fixed background color for all states */
+  border: 0.5px solid #E4E7EC;
+  border-radius: 6px;
+  width: 100%; /* same width as comment and IT boxes */
+  height: 90px;
   box-sizing: border-box;
+  display: flex;
+  align-items: center; /* vertically center text */
 }
 
 .rm-remarks p.locked {
-  background: #F7F7F7;
+  background: rgba(243, 243, 243, 1); /* same background color for locked state */
 }
 
 .rm-remarks {
-  margin-top: 40px; /* increased spacing between tools table and RM remarks */
+  margin-top: 22px; /* increased spacing between tools table and RM remarks */
+}
+
+/* IT General Remarks styles (editable textarea, same visual as RM Remarks) */
+.it-remarks {
+  margin-top: 30px;
+  margin-bottom: 40px;
+}
+
+.it-remarks .project-details-title {
+  margin-bottom: 4px; /* reduced spacing between IT title and textarea - same as comment box */
+  font-family: 'Samsung InterFace', "Segoe UI", Arial, sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 145%; /* or 20px */
+  display: flex;
+  align-items: center;
+  color: #101928;
 }
 
 .it-remarks textarea {
   width: 100%;
-  padding: 8px; /* further reduced from 12px */
+  padding: 28px 16px 16px 16px; /* increased top padding to push placeholder down */
   background: #FFFFFF;
   border: 1px solid #E4E7EC;
   border-radius: 6px;
-  font-family: "Inter", "Segoe UI", Arial, sans-serif;
-  font-size: 14px;
-  line-height: 145%;
-  color: #101928;
+  font-family: 'Samsung InterFace', "Inter", "Segoe UI", Arial, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 145%; /* 23px */
+  color: #000000;
   resize: none;
   box-sizing: border-box;
-  min-height: 72px; /* visually similar to RM remarks box */
+  min-height: 72px;
+  vertical-align: top; /* align text to top-left */
 }
 
 .it-remarks textarea.locked {
@@ -120,32 +182,50 @@
 
 .comment-box .project-details-title {
   margin-bottom: 4px; /* reduced spacing between title and textarea */
+  font-family: 'Samsung InterFace', "Segoe UI", Arial, sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 145%; /* or 20px */
+  display: flex;
+  align-items: center;
+  color: #101928;
 }
 
 .comment-box textarea {
   width: 100%;
-  height: 96px; /* slightly taller than RM remarks box */
-  padding: 8px; /* further reduced from 12px */
+  height: 96px;
+  padding: 28px 16px 16px 16px; /* increased top padding to push placeholder down */
   background: #FFFFFF;
   border: 1px solid #E4E7EC;
   border-radius: 6px;
-  font-family: "Inter", "Segoe UI", Arial, sans-serif;
-  font-size: 14px;
-  line-height: 145%;
-  color: #101928;
+  font-family: 'Samsung InterFace', "Inter", "Segoe UI", Arial, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 145%; /* 23px */
+  color: #000000;
   resize: none;
-  text-align: left; /* ensure placeholder/content aligns to left */
-  box-sizing: border-box; /* include padding/border in width to match remarks */
+  text-align: left;
+  box-sizing: border-box;
+  vertical-align: top; /* align text to top-left */
 }
 
 .comment-box textarea.locked {
-  background: #F7F7F7;
-  color: #101928;
+  background: rgba(243, 243, 243, 1); /* light gray background for locked state after submit */
+  color: #000000;
   pointer-events: none;
 }
 
-.comment-box textarea::placeholder {
-  color: #667085;
+.comment-box textarea::placeholder,
+.it-remarks textarea::placeholder,
+.rm-remarks p::placeholder {
+  font-family: 'Samsung InterFace', "Inter", "Segoe UI", Arial, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 145%; /* 23px */
+  color: #000000;
 }
 
 @media (max-width: 1440px) {
@@ -164,16 +244,15 @@
     min-width: 800px;
   }
 
-  .table th,
   .table td {
     padding: 8px 10px; /* further reduced for mobile */
   }
 }
 
-/* Select Required Tools title - reduced spacing */
+/* Select Required Tools title - fixed spacing */
 .project-details-title.select-tools-title {
-  margin-bottom: 4px; /* further reduced spacing above tools table */
-  margin-top: 12px; /* further reduced spacing from previous elements */
+  margin-bottom: 20px; /* fixed 20px spacing above tools table */
+  margin-top: 5px; /* reduced spacing from save as draft button */
 }
 
 .checkbox-button {
@@ -215,7 +294,7 @@
   align-items: center;
   justify-content: space-between; /* push note icon to the right end */
   gap: 0;
-  margin-bottom: 2px; /* reduced from 24px to match reference */
+  margin-bottom: 0px; /* reduced from 24px to match reference */
   position: relative; /* anchor for tooltip positioning */
 }
 
@@ -322,6 +401,7 @@
 /* Transfer Workflow: edge-to-edge image inside inner-container (which has 5px padding) */
 .transfer-workflow {
   margin: 48px -24px 0; /* match inner-container 24px padding for edge-to-edge */
+  min-height: 200px; /* maintain space even when image is hidden */
 }
 
 .transfer-workflow img {
@@ -336,6 +416,7 @@
   justify-content: flex-end;
   align-items: center;
   margin-top: 10px;
+  min-height: 26px; /* maintain space even when icon is hidden */
 }
 
 /* View Policies inside inner-container: 48px spacing below transfer workflow */
@@ -353,6 +434,7 @@
   justify-content: flex-end;
   align-items: center;
   margin-top: 40px;
+  min-height: 48px; /* maintain space even when button is hidden */
 }
 
 /* Reset button styles so the submit SVG has no surrounding background */
